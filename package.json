@@ -1,0 +1,36 @@
+{
+  "name": "ws",
+  "version": "0.1.0",
+  "description": "MMO MineSweeper ... ws",
+  "main": "src/ws.js",
+  "scripts": {
+    "develop": "nodemon . --legacy-watch --exec \"npm run-script test:lint && node\"",
+    "start": "node .",
+    "test": "npm run-script test:lint && npm run-script test:ci",
+    "test:ci": "jest --verbose",
+    "test:lint": "eslint src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pietrum-minesweeper/ws.git"
+  },
+  "author": "Fulkman <fulkman@pietrum.pl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pietrum-minesweeper/ws/issues"
+  },
+  "homepage": "https://github.com/pietrum-minesweeper/ws#readme",
+  "dependencies": {
+    "@jest/globals": "^27.0.6",
+    "basemq": "^0.2.0",
+    "debug": "^4.3.2",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "jest": "^27.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

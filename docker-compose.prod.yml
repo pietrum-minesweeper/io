@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  ws:
+    image: pietrum/minesweeper-ws:${MINESWEEPER_WS_TAG:-latest}
+    build:
+      context: .
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.minesweeper_website.entrypoints=websecure"
+        - "traefik.http.routers.minesweeper_website.tls.certresolver=myresolver"
+        - "traefik.http.routers.minesweeper_website.rule=Host(`${DOMAIN:-ws.minesweeper.pietrum.pl}`)"
+        - "traefik.http.services.minesweeper_website.loadbalancer.server.port=3000"
+
+networks:
+  default:
+    external: true
+    name: hxh

@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  ws:
+    build:
+      context: .
+      target: develop
+      args:
+        - NODE_ENV=${NODE_ENV:-development}
+    volumes:
+      - ./src:/usr/src/app/src:rw
+    environment:
+      - DOMAIN=${DOMAIN:-ws.minesweeper.local.pietrum.pl}
+      - NODE_ENV=${NODE_ENV:-development}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.game-minesweeper.entrypoints=web"
+      - "traefik.http.routers.game-minesweeper.rule=Host(`${DOMAIN:-ws.minesweeper.local.pietrum.pl}`)"
+
+networks:
+  default:
+    name: hxh
+    external: true

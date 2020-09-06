@@ -1,2 +1,1 @@
-# client
-Saper.IO - game client
+# MMO MineSweeper ... ws
